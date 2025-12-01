@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guía rápida de Git - Documentación</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <h1>Guía rápida de Git</h1>
+    <p>Pequeña documentación estática para aprender los comandos más usados de Git.</p>
+  </header>
+
+  <nav class="toc">
+    <a href="#que-es-git">¿Qué es Git?</a>
+    <a href="#instalacion">Instalación y configuración</a>
+    <a href="#flujo-basico">Flujo básico de trabajo</a>
+    <a href="#ramas">Ramas</a>
+    <a href="#remotos">Repositorios remotos</a>
+    <a href="#ejemplo-flujo">Ejemplo de flujo completo</a>
+  </nav>
+
+  <main class="content">
+    <section id="que-es-git">
+      <h2>¿Qué es Git?</h2>
+      <p>
+        Git es un sistema de control de versiones distribuido. Te permite guardar el
+        historial de cambios de tu código, trabajar con ramas y colaborar con otras personas.
+      </p>
+      <img src="assets/img/git-diagrama-basico.svg" alt="Diagrama básico de commits en Git" class="doc-image" />
+    </section>
+
+    <section id="instalacion">
+      <h2>Instalación y configuración inicial</h2>
+      <h3>1. Verificar si tienes Git instalado</h3>
+      <pre><code>$ git --version</code></pre>
+
+      <h3>2. Configuración básica de usuario</h3>
+      <pre><code>$ git config --global user.name "Tu Nombre"
+$ git config --global user.email "tu@email.com"
+$ git config --global init.defaultBranch main</code></pre>
+    </section>
+
+    <section id="flujo-basico">
+      <h2>Flujo básico de trabajo con Git</h2>
+      <h3>1. Inicializar un repositorio</h3>
+      <pre><code>$ git init</code></pre>
+
+      <h3>2. Ver el estado actual</h3>
+      <pre><code>$ git status</code></pre>
+
+      <h3>3. Añadir archivos al área de staging</h3>
+      <pre><code>$ git add nombre-archivo
+$ git add .   # Añadir todos los cambios</code></pre>
+
+      <h3>4. Crear un commit</h3>
+      <pre><code>$ git commit -m "mensaje descriptivo del cambio"</code></pre>
+
+      <h3>5. Ver el historial de commits</h3>
+      <pre><code>$ git log --oneline --graph --decorate --all</code></pre>
+    </section>
+
+    <section id="ramas">
+      <h2>Trabajo con ramas</h2>
+      <h3>1. Listar ramas</h3>
+      <pre><code>$ git branch</code></pre>
+
+      <h3>2. Crear una nueva rama</h3>
+      <pre><code>$ git branch nombre-rama</code></pre>
+
+      <h3>3. Cambiar de rama</h3>
+      <pre><code>$ git switch nombre-rama
+# o
+$ git checkout nombre-rama</code></pre>
+
+      <h3>4. Crear y cambiar a una rama en un solo paso</h3>
+      <pre><code>$ git switch -c nombre-rama</code></pre>
+
+      <h3>5. Unir una rama a main</h3>
+      <pre><code>$ git switch main
+$ git merge nombre-rama</code></pre>
+    </section>
+
+    <section id="remotos">
+      <h2>Repositorios remotos (GitHub, GitLab, etc.)</h2>
+      <h3>1. Clonar un repositorio existente</h3>
+      <pre><code>$ git clone https://url-del-repo.git</code></pre>
+
+      <h3>2. Ver los remotos configurados</h3>
+      <pre><code>$ git remote -v</code></pre>
+
+      <h3>3. Añadir un remoto</h3>
+      <pre><code>$ git remote add origin https://url-del-repo.git</code></pre>
+
+      <h3>4. Enviar cambios al remoto</h3>
+      <pre><code>$ git push -u origin main    # Primer push de la rama main
+$ git push                    # Siguientes pushes</code></pre>
+
+      <h3>5. Traer cambios del remoto</h3>
+      <pre><code>$ git pull                    # Descarga y fusiona cambios
+$ git fetch                   # Solo descarga, sin fusionar</code></pre>
+    </section>
+
+    <section id="ejemplo-flujo">
+      <h2>Ejemplo de flujo completo</h2>
+      <p>Imagina que creamos este mismo proyecto desde cero:</p>
+      <pre><code># 1. Crear carpeta y entrar
+$ mkdir git-docs-site
+$ cd git-docs-site
+
+# 2. Inicializar Git
+$ git init
+
+# 3. Crear archivos (index.html, assets, README.md, etc.)
+# 4. Ver estado
+$ git status
+
+# 5. Añadir todo y hacer primer commit
+$ git add .
+$ git commit -m "feat: estructura inicial de documentación"
+
+# 6. Crear rama para nueva sección
+$ git switch -c feature/seccion-avanzada
+
+# 7. Editas archivos, luego:
+$ git add index.html
+$ git commit -m "feat: seccion avanzada de comandos Git"
+
+# 8. Volver a main y mezclar
+$ git switch main
+$ git merge feature/seccion-avanzada</code></pre>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Creado como práctica para aprender Git y documentación estática.</p>
+  </footer>
+</body>
+</html>
