@@ -44,6 +44,30 @@ body {
   font-size: 0.98rem;
 }
 
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.7rem;
+  margin-bottom: 1rem;
+  border-radius: 999px;
+  background-color: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(191, 219, 254, 0.4);
+  color: #e5e7eb;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.hero-badge::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: radial-gradient(circle, #4ade80, #16a34a);
+  box-shadow: 0 0 8px rgba(74, 222, 128, 0.9);
+}
+
 .toc {
   display: flex;
   flex-wrap: nowrap;
@@ -144,6 +168,82 @@ pre {
 code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 0.88rem;
+}
+
+.code-block {
+  position: relative;
+  margin-top: 0.6rem;
+}
+
+.code-block pre {
+  margin: 0;
+}
+
+.code-copy-btn {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.75rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background-color: rgba(15, 23, 42, 0.9);
+  color: #e5e7eb;
+  font-size: 0.7rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  opacity: 0.85;
+  transition: background-color 120ms ease, border-color 120ms ease, opacity 120ms ease,
+    transform 100ms ease;
+}
+
+.code-copy-btn:hover {
+  opacity: 1;
+  background-color: #1d4ed8;
+  border-color: transparent;
+  transform: translateY(-1px);
+}
+
+.code-copy-btn:active {
+  transform: translateY(0);
+}
+
+.code-copy-btn.copied {
+  background-color: #16a34a;
+  border-color: transparent;
+}
+
+.steps {
+  margin-top: 0.5rem;
+  padding-left: 0;
+  list-style: none;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.step-index {
+  flex-shrink: 0;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #1d4ed8, #38bdf8);
+  color: #f9fafb;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.7);
+}
+
+.step-body {
+  font-size: 0.9rem;
 }
 
 .doc-image {
