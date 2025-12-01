@@ -24,6 +24,8 @@
       <a href="#flujo-ramas">Flujo de trabajo con ramas</a>
       <a href="#comandos-avanzados">Comandos avanzados</a>
       <a href="#deploy-github-pages">Deploy con GitHub Pages</a>
+      <a href="#atajos-utiles">Atajos útiles</a>
+      <a href="#glosario-git">Glosario Git</a>
       <a href="#ejemplo-flujo">Ejemplo de flujo completo</a>
     </nav>
 
@@ -303,12 +305,96 @@
           GitHub Pages reconstruirá automáticamente la página con la última versión.
         </p>
       </section>
-    </main>
- </div>
 
+      <section id="atajos-utiles">
+        <h2>Atajos útiles</h2>
+        <p>
+          Algunos comandos y configuraciones que te ahorran tiempo en el uso diario de Git.
+        </p>
+
+        <h3>Alias de Git recomendados</h3>
+        <p>Puedes definir alias para no escribir comandos largos todo el tiempo:</p>
+        <div class="code-block">
+          <pre><code>$ git config --global alias.st status
+$ git config --global alias.co checkout
+$ git config --global alias.br branch
+$ git config --global alias.ci commit
+$ git config --global alias.lg "log --oneline --graph --decorate --all"</code></pre>
+        </div>
+
+        <h3>Ver solo los cambios de un archivo</h3>
+        <div class="code-block">
+          <pre><code>$ git diff nombre-archivo.ext</code></pre>
+        </div>
+
+        <h3>Deshacer cambios no commiteados en un archivo</h3>
+        <div class="code-block">
+          <pre><code>$ git restore nombre-archivo.ext</code></pre>
+        </div>
+      </section>
+
+      <section id="glosario-git">
+        <h2>Glosario Git</h2>
+        <p>
+          Pequeño glosario con términos básicos que aparecen a lo largo de esta guía.
+        </p>
+        <dl class="glossary">
+          <dt>Repositorio</dt>
+          <dd>Carpeta controlada por Git donde se guarda el historial de cambios de tu proyecto.</dd>
+
+          <dt>Commit</dt>
+          <dd>
+            Punto en el tiempo que captura un conjunto de cambios. Suele ir acompañado de un mensaje
+            descriptivo.
+          </dd>
+
+          <dt>Rama (branch)</dt>
+          <dd>
+            Línea de desarrollo independiente. Te permite probar nuevas ideas sin romper la rama
+            principal.
+          </dd>
+
+          <dt>Remoto (remote)</dt>
+          <dd>
+            Versión del repositorio almacenada en un servidor (por ejemplo, GitHub) con la que
+            sincronizas cambios.
+          </dd>
+
+          <dt>Merge</dt>
+          <dd>
+            Operación que une los commits de una rama dentro de otra. Normalmente se usa para llevar
+            cambios de una rama de feature a <code>main</code>.
+          </dd>
+
+          <dt>Rebase</dt>
+          <dd>
+            Reescribe tus commits para “reaplicarlos” sobre otra base (por ejemplo, la rama
+            <code>main</code> actualizada).
+          </dd>
+
+          <dt>Stash</dt>
+          <dd>
+            Zona temporal donde puedes guardar cambios sin necesidad de crear un commit todavía.
+          </dd>
+
+          <dt>Tag</dt>
+          <dd>
+            Marca que se coloca sobre un commit concreto, normalmente para señalar una versión
+            importante del proyecto (v1.0.0, v2.0.0, etc.).
+          </dd>
+        </dl>
+      </section>
+    </main>
+  </div>
 
   <footer class="footer">
     <p>Creado como práctica para aprender Git y documentación estática.</p>
+    <p>
+      Recursos:
+      <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer">Página oficial de Git</a>
+      ·
+      <a href="https://github.com/codedevcoder/git-docs-site" target="_blank" rel="noopener noreferrer">Repositorio en GitHub</a>
+    </p>
   </footer>
 </body>
 </html>

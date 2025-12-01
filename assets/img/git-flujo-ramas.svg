@@ -1,0 +1,31 @@
+<svg width="480" height="200" viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Flujo simple de ramas en Git</title>
+  <desc id="desc">Diagrama simplificado que muestra la rama main y una rama feature que se fusiona de nuevo en main.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#38bdf8" />
+    </marker>
+  </defs>
+
+  <!-- Línea main -->
+  <path d="M 40 60 H 440" stroke="#4b5563" stroke-width="2" fill="none" />
+  <circle cx="80" cy="60" r="9" fill="#1d4ed8" />
+  <circle cx="160" cy="60" r="9" fill="#1d4ed8" />
+  <circle cx="240" cy="60" r="9" fill="#1d4ed8" />
+  <circle cx="320" cy="60" r="9" fill="#1d4ed8" />
+  <circle cx="400" cy="60" r="9" fill="#1d4ed8" />
+  <text x="44" y="45" fill="#e5e7eb" font-size="12">main</text>
+
+  <!-- Rama feature -->
+  <path d="M 240 60 C 260 80 280 110 300 120 C 320 130 350 120 360 100" stroke="#38bdf8" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+  <circle cx="270" cy="100" r="9" fill="#38bdf8" />
+  <circle cx="300" cy="120" r="9" fill="#38bdf8" />
+  <circle cx="330" cy="110" r="9" fill="#38bdf8" />
+  <text x="280" y="150" fill="#e5e7eb" font-size="12">feature/rama-ejemplo</text>
+
+  <!-- Etiquetas -->
+  <text x="72" y="82" fill="#9ca3af" font-size="11">commit inicial</text>
+  <text x="150" y="82" fill="#9ca3af" font-size="11">nuevo commit</text>
+  <text x="232" y="82" fill="#9ca3af" font-size="11">branch</text>
+  <text x="370" y="82" fill="#9ca3af" font-size="11">merge</text>
+</svg>

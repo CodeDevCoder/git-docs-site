@@ -266,6 +266,31 @@ code {
   margin-top: 1rem;
 }
 
+.footer a {
+  color: #bfdbfe;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.glossary {
+  margin-top: 0.75rem;
+}
+
+.glossary dt {
+  font-weight: 600;
+  color: #e5e7eb;
+  margin-top: 0.75rem;
+}
+
+.glossary dd {
+  margin: 0.1rem 0 0.3rem 0;
+  color: #9ca3af;
+}
+
 @media (min-width: 960px) {
   .layout {
     display: grid;
