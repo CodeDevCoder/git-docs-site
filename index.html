@@ -15,9 +15,12 @@
   <nav class="toc">
     <a href="#que-es-git">¿Qué es Git?</a>
     <a href="#instalacion">Instalación y configuración</a>
-    <a href="#flujo-basico">Flujo básico de trabajo</a>
+    <a href="#flujo-basico">Flujo básico</a>
     <a href="#ramas">Ramas</a>
     <a href="#remotos">Repositorios remotos</a>
+    <a href="#flujo-ramas">Flujo de trabajo con ramas</a>
+    <a href="#comandos-avanzados">Comandos avanzados</a>
+    <a href="#deploy-github-pages">Deploy con GitHub Pages</a>
     <a href="#ejemplo-flujo">Ejemplo de flujo completo</a>
   </nav>
 
@@ -131,18 +134,111 @@ $ git commit -m "feat: seccion avanzada de comandos Git"
 $ git switch main
 $ git merge feature/seccion-avanzada</code></pre>
     </section>
-    <section>
+    <section id="flujo-ramas">
       <h2>Flujo de trabajo con ramas</h2>
-      <p>Esta seccion la cree desde la rama <code>feature/rama-ejemplo</code></p>
+      <p>
+        Ejemplo real del flujo que usaste en este proyecto para trabajar con una rama
+        y luego mezclarla en <code>main</code>.
+      </p>
+
+      <h3>1. Crear y cambiar a una rama nueva</h3>
+      <pre><code>$ git switch -c feature/rama-ejemplo</code></pre>
+
+      <h3>2. Hacer cambios y commitear</h3>
+      <pre><code># Editas index.html y luego:
+$ git add index.html
+$ git commit -m "Add section about branch workflow"</code></pre>
+
+      <h3>3. Volver a main y hacer merge</h3>
+      <pre><code>$ git switch main
+$ git merge feature/rama-ejemplo</code></pre>
+
+      <p>
+        Este patrón (crear rama → trabajar → hacer commits → volver a <code>main</code> →
+        <code>merge</code>) es la base de la colaboración en Git.
+      </p>
+    </section> 
+    <section id="comandos-avanzados">
+      <h2>Comandos avanzados de Git</h2>
+      <p>
+        Algunos comandos útiles para trabajar con cambios temporales, reescribir historia
+        y marcar versiones importantes.
+      </p>
+
+      <h3><code>git stash</code>: guardar cambios sin commit</h3>
+      <p>Ideal cuando quieres cambiar de rama pero aún no quieres commitear.</p>
+      <pre><code># Guardar cambios actuales en un stash
+$ git stash push -m "Mensaje descriptivo"
+
+# Ver stashes guardados
+$ git stash list
+
+# Recuperar el último stash
+$ git stash pop</code></pre>
+
+      <h3><code>git rebase</code>: reescribir historia sobre otra rama</h3>
+      <p>
+        Reaplica tus commits encima de otra rama (por ejemplo, para “actualizar” tu rama
+        con lo último de <code>main</code>).
+      </p>
+      <pre><code># Estando en tu rama de trabajo
+$ git switch mi-rama
+$ git rebase main
+
+# Si hay conflictos:
+# 1. Arreglas el archivo
+$ git add archivo-conflictivo
+# 2. Continúas el rebase
+$ git rebase --continue</code></pre>
+
+      <h3><code>git tag</code>: marcar versiones</h3>
+      <p>Sirve para marcar puntos importantes en el historial, como versiones v1.0.0.</p>
+      <pre><code># Crear un tag anotado en el commit actual
+$ git tag -a v1.0.0 -m "Primera versión del sitio"
+
+# Ver tags
+$ git tag
+
+# Ver detalles de un tag
+$ git show v1.0.0</code></pre>
     </section>
-    <section>
-    <h2>Comandos avanzados de Git</h2>
-    <ul>
-      <li><code>git stash</code>: guarda cambios sin hacer commit.</li>
-      <li><code>git rebase</code>: reescribe la historia sobre otra rama/base.</li>
-      <li><code>git tag</code>: marca puntos importantes en el historial.</li>
-    </ul>
-  </section>
+    <section id="deploy-github-pages">
+      <h2>Deploy con GitHub Pages</h2>
+      <p>
+        Estos son, resumidos, los pasos que seguiste para publicar este sitio estático
+        usando GitHub Pages.
+      </p>
+
+      <h3>1. Subir el repositorio a GitHub</h3>
+      <ol>
+        <li>Crear un repositorio vacío en GitHub (sin README, ni .gitignore, ni licencia).</li>
+        <li>Configurar el remoto en tu proyecto local:</li>
+      </ol>
+      <pre><code>$ git remote add origin https://github.com/TU_USUARIO/git-docs-site.git
+$ git push -u origin main</code></pre>
+
+      <h3>2. Activar GitHub Pages</h3>
+      <ol>
+        <li>Ir a <strong>Settings &gt; Pages</strong> dentro del repositorio en GitHub.</li>
+        <li>En <em>Build and deployment</em>, elegir:
+          <ul>
+            <li><strong>Source</strong>: Deploy from a branch</li>
+            <li><strong>Branch</strong>: <code>main</code> y carpeta <code>/ (root)</code></li>
+          </ul>
+        </li>
+        <li>Guardar la configuración y esperar unos segundos.</li>
+      </ol>
+
+      <h3>3. Ver el sitio online</h3>
+      <p>
+        GitHub genera una URL del estilo:
+      </p>
+      <pre><code>https://codedevcoder.github.io/git-docs-site/</code></pre>
+      <p>
+        Cada vez que hagas cambios en <code>main</code> y hagas <code>git push</code>,
+        GitHub Pages reconstruirá automáticamente la página con la última versión.
+      </p>
+    </section>
   </main>
 
   <footer class="footer">
